@@ -1,0 +1,80 @@
+from PIL import Image,ImageTk
+
+You may have to install Pillow for this library:
+
+> pip2.7 install -I --no-cache-dir Pillow
+-----------------------------------------------------------------------------
+To install python and open cv from scratch:
+
+Insatll PythonXY  (it is only 32 bit python) and select opencv in the list of modules to install.
+Then run this single line python program:
+import cv2
+
+If you encounter the eror:
+'ImportError: DLL load failed: The specified procedure could not be found.' Then do this:
+
+Download the right wheel from http://www.lfd.uci.edu/~gohlke/pythonlibs/#opencv and then:
+> pip install opencv_python-3.1.0-cp27-cp27m-win32.whl
+
+If you encounter the error:
+RuntimeError: module compiled against API version a but this version of numpy is 9
+> pip install numpy --upgrade
+-----------------------------------------------------------------------------
+To temporarily set the path for a session:
+
+set PATH=c:\Anaconda2;c:\Anaconda2\scripts;%PATH%
+-----------------------------------------------------------------------------
+https://conda.io/docs/user-guide/tasks/manage-environments.html
+Anaconda with open CV:
+Install Anaconda.
+
+> cd Prasad-IoT\Code\Python\AnacondaProjects
+
+Create a virtual environment named ap  (anaconda python):
+> conda create --name ap
+
+To activate an environment:
+> avtivate ap
+
+At the end:
+> deactivate
+
+To verify if all your stuff is there:
+> conda list
+
+Then use the environment with the -n switch:
+
+> conda install -n ap  <package_name>
+
+Install a specific version:
+> conda install -n ap  numpy=0.15.0
+
+Tip: Install all the programs for an environment at the same time. Installing one program at a time can 
+lead to dependency conflicts.
+
+To list all envs:
+> conda env list
+OR
+> conda info --envs
+
+To list all packages in an environment:
+> conda list
+
+To use pip:
+> conda install -n ap pip
+> activate ap
+> pip install  --update numpy
+
+To insatll open cv (from binstar):
+> conda install -c menpo opencv
+> conda list  
+should now show all loaded modules
+-----------------------------------------------------------------------------
+Python serial monitor program:
+python -m serial.tools.list_ports
+python -m serial.tools.miniterm  COM5
+-----------------------------------------------------------------------------
+if  hog.detectMultiScale() crashes the program:
+The problem is with openCL. There is no fix. Work around:
+Compile openCV by disabling openCL.
+----------------------------------------------------------------------------- 

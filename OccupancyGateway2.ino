@@ -46,14 +46,14 @@ void setup()
     pinMode (led, OUTPUT);
     blinker();
     Serial.begin (9600);      
-    Serial.println(F("NRF24 Gateway receiver starting.."));
+    //Serial.println(F("NRF24 Gateway receiver starting.."));
     // node ID 0 is reserved for the master 
     mesh.setNodeID(0);
-    Serial.print(F("This is the Mesh Master: Node #0"));  // print 0 for octal prefix
-    Serial.println(mesh.getNodeID());  // read back that id
+    //Serial.print(F("This is the Mesh Master: Node #0"));  // print 0 for octal prefix
+    //Serial.println(mesh.getNodeID());  // read back that id
     // Connect to the mesh
     mesh.begin();
-    Serial.println("Mesh started...");
+    //Serial.println("Mesh started...");
     //T.every(tick_interval, tick);  // start software timer 
 }
 
@@ -78,7 +78,7 @@ void read_data() {
 
 char data_str[32];
 void upload_to_cloud () {
-    sprintf (data_str, "[G%d,N%d,S%d,T%d,H%d]\n", 
+    sprintf (data_str, "[g%d,n%d,s%d,t%d,h%d]\n", 
             gatewayID, status_payload.node_id, 
             status_payload.occupied, status_payload.temperature,
             status_payload.humidity);    

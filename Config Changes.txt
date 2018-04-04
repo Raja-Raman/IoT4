@@ -27,7 +27,7 @@ signature		= 0x1e 0x95 0x14
 
 The resulting section will look like this:
 
-    # modified by Rajaraman to work with US supplied parking sensor board
+    # modified by Rajaraman to work with customized board
     #signature		= 0x1e 0x95 0x0F;
     signature		= 0x1e 0x95 0x14;    
     # end modified by Rajaraman

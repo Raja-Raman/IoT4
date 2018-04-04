@@ -1,0 +1,40 @@
+NOTE:
+If you get the following error message while uploading code to Arduino:
+"Expected signature 0x1e 0x95 0x0F,  but found 0x1e 0x95 0x14" :
+
+Explanation:
+The standard Arduino boards bought from the market have a signature 0x1e 0x95 0x0F
+built into the ATmega chip.
+
+But if you are building your own version of Arduino board from scratch, the ATMega
+chip may have the signature 0x1e 0x95 0x14. This prevents code from being uploaded.
+
+Solution:
+
+Edit the configuration file avrdude.conf. It will be usually in the folder
+C:\Program Files\Arduino\hardware\tools\avr\etc\avrdude.conf
+
+(Tip: Make a backup copy of the file before modifying)
+
+Search for the string  0x1e 0x95 0x0F.
+
+You will see a line like:
+signature		= 0x1e 0x95 0x0F
+Comment out that line.
+
+Add the following line:
+signature		= 0x1e 0x95 0x14
+
+The resulting section will look like this:
+
+    # modified by Rajaraman to work with US supplied parking sensor board
+    #signature		= 0x1e 0x95 0x0F;
+    signature		= 0x1e 0x95 0x14;    
+    # end modified by Rajaraman
+    
+Save the file.
+
+Restart Arduino IDE.
+
+Done !
+    
